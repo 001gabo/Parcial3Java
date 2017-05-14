@@ -135,7 +135,5 @@ public class ControladorConsulta extends models.Conexion
     }
     
   
-    
-  
             
 }

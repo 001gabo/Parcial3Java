@@ -10,8 +10,8 @@
   <div class="login-page">
   <div class="form" >
     <form action="iniciar"  method="post" class="login-form"  id="forminicio">
-      <input type="text" placeholder="usuario" name="usuario" id="txtusuario"/>
-      <input type="password" placeholder="password" name="password" id="txtpass" />
+      <input type="text" placeholder="usuario" name="user" id="txtusuario"/>
+      <input type="password" placeholder="password" name="pass" id="txtpass" />
       <button type="submit" id="btniniciar">login</button>
     </form>
     </div>
