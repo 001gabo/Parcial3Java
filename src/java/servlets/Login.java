@@ -39,7 +39,13 @@ public class Login extends HttpServlet {
            String contra = request.getParameter("password");
            
            ControladorConsulta co = new ControladorConsulta();
-           if(co.autenticacion(usuario, contra))
+           if(co.autenticacion(usuario, contra)== 1)
+           {
+               HttpSession objsesion = request.getSession(true);
+               objsesion.setAttribute("usuario", usuario);
+               response.sendRedirect("shop.jsp");
+           }
+           if(co.autenticacion(usuario, contra)== 2)
            {
                HttpSession objsesion = request.getSession(true);
                objsesion.setAttribute("usuario", usuario);
