@@ -6,15 +6,15 @@
     ModeloUsuario mu = new ModeloUsuario();
     HttpSession objsesion = request.getSession(false);
     String usuario = (String)objsesion.getAttribute("usuario");
-    int docente = (Integer)objsesion.getAttribute("id");
-    if(usuario == null)response.sendRedirect("log.jsp");
+    String rol = (String)objsesion.getAttribute("rol");
+    if(rol != "docente")
+    {
+        response.sendRedirect("log.jsp");
+    }
     Usuario us = new Usuario();
     us = mu.getUsuario(usuario);
     ControladorVisita cv = new ControladorVisita();
-   
-   
-    
-    
+ 
 %>
 <jsp:useBean id="fecha" scope="page" class="java.util.Date"/>
 <html lang="es">
@@ -78,7 +78,7 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-                                                            <li><a href=""><i class="fa fa-user"></i>Bienvenido <% out.println(usuario); %></a></li>
+                                                            <li><a href=""><i class="fa fa-user"></i>Bienvenido <% out.println(usuario); %> </a></li>
 						            <li><a href="log.jsp"><i class="fa fa-unlock"></i> Cerrar Sesion</a></li>
                                                         </ul>
 						</div>
@@ -123,9 +123,10 @@
 					
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Ultimos viajes</h2>
+                                            <br/>
+						<h2 class="title text-center">Visitas</h2>
                                                 <!--Carga Viajes-->
-						<%= cv.getVisitas() %>
+						<%= cv.getVisitas(us.getId()) %>
 																	
 						<ul class="pagination">
 							<li class="active"><a href="">1</a></li>

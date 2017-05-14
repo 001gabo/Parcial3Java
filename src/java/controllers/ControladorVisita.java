@@ -14,11 +14,11 @@ import models.ModeloVisitas;
  */
 public class ControladorVisita 
 {
-     public String getVisitas()
+     public String getVisitas(int iden)
     {
         String htmlcode = "";
         ModeloVisitas vis = new ModeloVisitas();         
-        for ( Visita vi : vis.getAllViajes(1))
+        for ( Visita vi : vis.getAllViajes(iden))
         {
             htmlcode += "<div class=\"col-sm-4\">\n" +
 "							<div class=\"product-image-wrapper\">\n" +
@@ -32,8 +32,8 @@ public class ControladorVisita
 "									<div class=\"product-overlay\">\n" +
 "										<div class=\"overlay-content\">\n" +
 "											<h2>"+vi.getInstitucion()+"</h2>\n" +
-"                                                                                       <p>"+vi.getFecha()+"</p>\n" +
-"											<a href=\"product-details.jsp?id=\" class=\"btn btn-default \"><i></i>Reserva</a>\n" +
+"                                                                                       <p>Fecha: "+vi.getFecha()+"</p>\n" +                    
+"                                                                                       <p>Asignado a: "+vi.getUsuario()+"</p>\n" +
 "										</div>\n" +
 "									</div>\n" +
 "								</div>\n" +

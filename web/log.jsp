@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html >
+<%
+    HttpSession objsesion = request.getSession(false);
+    objsesion.invalidate();
+%>
+<html>
      <script src="js/vali.js" type="text/javascript"></script>
 <head>
   <meta charset="UTF-8">

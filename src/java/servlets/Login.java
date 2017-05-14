@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
            {
                HttpSession objsesion = request.getSession(true);
                objsesion.setAttribute("usuario", usuario);
-               objsesion.setAttribute("id", 1);
+               objsesion.setAttribute("rol", "director");
                response.sendRedirect("director.jsp");
            }
            co = new ControladorConsulta();
@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
            {
                HttpSession objsesion = request.getSession(true);
                objsesion.setAttribute("usuario", usuario);
-                objsesion.setAttribute("id", 2);
+               objsesion.setAttribute("rol", "docente");
                response.sendRedirect("docentes.jsp");
            }
            co = new ControladorConsulta();
