@@ -17,9 +17,6 @@ import java.sql.*;
  */
 public class ControladorConsulta extends models.Conexion
 {
-    
-    public Usuario usr = new Usuario();
-    
     public int autenticacion(String usuario,String pass)
     {
     PreparedStatement pst = null;
@@ -29,8 +26,8 @@ public class ControladorConsulta extends models.Conexion
     {
         String consulta = "SELECT usuario.usuario,usuario.pass,persona.rol FROM usuario INNER JOIN persona ON usuario.idpersona = persona.id where usuario.usuario = ? and usuario.pass = ? and persona.rol = ?";
         pst = getConnection().prepareStatement(consulta);
-        pst.setString(1, usuario);
-        pst.setString(2, pass);
+        pst.setString(1,usuario);
+        pst.setString(2,pass);
         pst.setInt(3, 1 );
         rs = pst.executeQuery();
        
@@ -90,7 +87,7 @@ public class ControladorConsulta extends models.Conexion
     }
     return 0;
     }
-    
+  /*  
     public boolean registrar(String Nombres, String Apellidos, String correo, String usuario,String pass, String telefono,String pasaporte)
     {
         PreparedStatement pst = null;
@@ -135,5 +132,8 @@ public class ControladorConsulta extends models.Conexion
     }
     
   
-            
+     */ 
+ 
 }
+
+

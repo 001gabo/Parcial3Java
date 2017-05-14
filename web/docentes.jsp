@@ -1,8 +1,7 @@
-<%-- 
-    Document   : docentes
-    Created on : 14-may-2017, 10:34:24
-    Author     : adani
---%>
+<%
+    HttpSession objsesion = request.getSession(false);
+    String usuario = (String)objsesion.getAttribute("usuario");
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +11,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello <% out.println(usuario); %>!</h1>
     </body>
 </html>

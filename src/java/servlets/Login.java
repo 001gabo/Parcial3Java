@@ -36,25 +36,33 @@ public class Login extends HttpServlet {
         PrintWriter out = response.getWriter();
             /* TODO output your page here. You may use following sample code. */
            String usuario = request.getParameter("user");
-           String contra = request.getParameter("pass");
+           String pass = request.getParameter("pass");
            
            ControladorConsulta co = new ControladorConsulta();
-           if(co.autenticacion(usuario, contra)== 1)
+           if(co.autenticacion(usuario, pass)== 1)
            {
                HttpSession objsesion = request.getSession(true);
                objsesion.setAttribute("usuario", usuario);
                response.sendRedirect("director.jsp");
            }
-           if(co.autenticacion(usuario, contra)== 2)
+           co = new ControladorConsulta();
+           if(co.autenticacion(usuario, pass)== 2)
            {
                HttpSession objsesion = request.getSession(true);
                objsesion.setAttribute("usuario", usuario);
                response.sendRedirect("docentes.jsp");
            }
+           co = new ControladorConsulta();
+           if(co.autenticacion( usuario, pass)== 0)
+           {   
+               HttpSession objsesion = request.getSession(false);
+               response.sendRedirect("log.jsp");
+           }
          
            
         
     }
+   
       
     
 
