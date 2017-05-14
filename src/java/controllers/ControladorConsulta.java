@@ -86,54 +86,5 @@ public class ControladorConsulta extends models.Conexion
         }
     }
     return 0;
-    }
-  /*  
-    public boolean registrar(String Nombres, String Apellidos, String correo, String usuario,String pass, String telefono,String pasaporte)
-    {
-        PreparedStatement pst = null;
-        
-        try
-        {
-           String consulta="INSERT INTO `pasajeros`( `nombres`, `apellidos`, `correo`, `usuario`, `pass`, `telefono`, `pasaporte`, `id_rol`) VALUES (?,?,?,?,?,?,?,?)";
-           pst = getConnection().prepareStatement(consulta);
-           pst.setString(1, Nombres);
-           pst.setString(2, Apellidos);
-           pst.setString(3, correo);
-           pst.setString(4, usuario);
-           pst.setString(5, pass);
-           pst.setString(6, telefono);
-           pst.setString(7, pasaporte);
-           pst.setInt(8, 1);
-           
-           if(pst.executeUpdate() == 1)
-           {
-               return true;
-           }
-           
-        }
-        catch(Exception e)
-        {
-        }
-        finally
-        {
-            try
-            {    
-                if(getConnection() !=null) getConnection().close();
-                if(pst != null) getConnection().close();
-            }
-            catch(Exception e)
-            {
-                
-            }
-            
-       }
-        
-        return false;
-    }
-    
-  
-     */ 
- 
+    } 
 }
-
-

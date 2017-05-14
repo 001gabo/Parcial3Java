@@ -11,15 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import controllers.ControladorConsulta;
 import javax.servlet.http.HttpSession;
-
 
 /**
  *
  * @author adani
  */
-public class Login extends HttpServlet {
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,42 +29,13 @@ public class Login extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            /* TODO output your page here. You may use following sample code. */
-           String usuario = request.getParameter("user");
-           String pass = request.getParameter("pass");
-           
-           ControladorConsulta co = new ControladorConsulta();
-           if(co.autenticacion(usuario, pass)== 1)
-           {
-               HttpSession objsesion = request.getSession(true);
-               objsesion.setAttribute("usuario", usuario);
-               objsesion.setAttribute("id", 1);
-               response.sendRedirect("director.jsp");
-           }
-           co = new ControladorConsulta();
-           if(co.autenticacion(usuario, pass)== 2)
-           {
-               HttpSession objsesion = request.getSession(true);
-               objsesion.setAttribute("usuario", usuario);
-                objsesion.setAttribute("id", 2);
-               response.sendRedirect("docentes.jsp");
-           }
-           co = new ControladorConsulta();
-           if(co.autenticacion( usuario, pass)== 0)
-           {   
-               HttpSession objsesion = request.getSession(false);
-               response.sendRedirect("log.jsp");
-           }
-         
-           
-        
+        HttpSession objsesion = request.getSession(false);
+        response.sendRedirect("log.jsp");
+                
     }
-   
-      
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
