@@ -29,7 +29,7 @@
               <div class="form" >
         <h3>Hora de asignar una visita a un docente</h3>
         <p>Primero selecciona la escuela del docente al cual se le asignara la visita.</p>
-         
+        <form action="agendar.jsp" method="post">
                     <sql:setDataSource
                             driver="com.mysql.jdbc.Driver"
                             url="jdbc:mysql://localhost/parcial3java"
@@ -46,10 +46,10 @@
                                        <option value="${escu.id}"${escu.id==selectedSchool?'selected':''}>${escu.nombre}</option>       
                                     </c:forEach> 
                                     </select>
-                                   <br><br>
-                                   <a href="agendar.jsp"><button type="submit" >Siguiente</button><br><br>
+                                   <br><br> 
+                                   <a href="agendar.jsp"><button type="submit" >Siguiente</button></a><br><br>
                                    <a href="director.jsp"><button type="button">Inicio</button></a>
-                
+          </form>      
         </div>
         </div> 
                         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
