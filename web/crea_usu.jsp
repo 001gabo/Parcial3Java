@@ -42,9 +42,9 @@
                     
                     <div class="col-md-4">
                         <label>Apellido:</label><br>
-                        <input type="text" name="apellidos"/><br><br>
+                        <input type="text" name="apellidos" required/><br><br>
                         <label>Nombre:</label><br>
-                        <input type="text" name="nombres"/><br><br> 
+                        <input type="text" name="nombres" required/><br><br> 
                         
                         <sql:setDataSource
                             driver="com.mysql.jdbc.Driver"
@@ -66,6 +66,7 @@
                                            
                         <br><br>
                         <button type="submit" class="btn btn-info">Crear</button>
+                        <a href="director.jsp"><button type="button" class="btn btn-warning">Cancelar</button></a>
                     </div>
                         
                         <div class="col-md-4">  

@@ -38,7 +38,8 @@
                                     </c:forEach> 
                                     </select>
                                    <br><br>
-                                   <button type="submit" >Siguiente</button>
+                                   <button type="submit" >Siguiente</button><br><br>
+                                   <a href="director.jsp"><button type="button">Inicio</button></a>
                 
         </div>
         </div> 

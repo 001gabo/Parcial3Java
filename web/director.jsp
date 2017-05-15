@@ -38,7 +38,7 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <a href="crea_usu.jsp"><button class="btn btn-primary">Agrega un docente</button></a><br><br>
-                    <a href="agendar.jsp"><button class="btn btn-primary">Agenda una visita a un docente</button></a><br><br> 
+                    <a href="agenda_visita.jsp"><button class="btn btn-primary">Agenda una visita a un docente</button></a><br><br> 
                     <a href="log.jsp"><button class="btn btn-danger">Cerrar Sesión</button></a><br><br> 
                 </div>
                 <div class="col-md-4"></div>
