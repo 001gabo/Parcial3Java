@@ -35,8 +35,8 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
             /* TODO output your page here. You may use following sample code. */
-           String usuario = request.getParameter("user");
-           String pass = request.getParameter("pass");
+           String usuario = request.getParameter("usuario");
+           String pass = request.getParameter("password");
            
            ControladorConsulta co = new ControladorConsulta();
            if(co.autenticacion(usuario, pass)== 1)
