@@ -24,7 +24,7 @@ public class ControladorConsulta extends models.Conexion
     
     try
     {
-        String consulta = "SELECT usuario.usuario,usuario.pass,persona.rol FROM usuario INNER JOIN persona ON usuario.idpersona = persona.id where usuario.usuario = ? and usuario.pass = ? and persona.rol = ?";
+        String consulta = "SELECT usuario.usuario,usuario.pass,persona.rol FROM usuario INNER JOIN persona ON usuario.idpersona = persona.id where usuario.usuario = ? and usuario.pass = MD5(?) and persona.rol = ?";
         pst = getConnection().prepareStatement(consulta);
         pst.setString(1,usuario);
         pst.setString(2,pass);
@@ -55,7 +55,7 @@ public class ControladorConsulta extends models.Conexion
     
      try
     {
-        String consulta = "SELECT usuario.usuario,usuario.pass,persona.rol FROM usuario INNER JOIN persona ON usuario.idpersona = persona.id where usuario.usuario = ? and usuario.pass = ? and persona.rol = ?";
+        String consulta = "SELECT usuario.usuario,usuario.pass,persona.rol FROM usuario INNER JOIN persona ON usuario.idpersona = persona.id where usuario.usuario = ? and usuario.pass = MD5(?) and persona.rol = ?";
         pst = getConnection().prepareStatement(consulta);
         pst.setString(1, usuario);
         pst.setString(2, pass);

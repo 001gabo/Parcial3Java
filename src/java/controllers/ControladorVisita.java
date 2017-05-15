@@ -27,7 +27,6 @@ public class ControladorVisita
 "										<img src=\"images/escuela.jpg\" alt=\"\" />\n" +
 "										<h2>"+vi.getInstitucion()+"</h2>\n" +
 "										<p>"+vi.getFecha()+"</p>\n" +
-"										<a href=\"product-details.jsp?id=\" class=\"btn btn-default \"><i></i>Reserva</a>\n" +
 "									</div>\n" +
 "									<div class=\"product-overlay\">\n" +
 "										<div class=\"overlay-content\">\n" +

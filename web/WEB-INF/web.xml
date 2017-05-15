@@ -8,6 +8,10 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>servlets.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Agregar</servlet-name>
+        <servlet-class>servlets.Agregar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/iniciar</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/salir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Agregar</servlet-name>
+        <url-pattern>/insertar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
