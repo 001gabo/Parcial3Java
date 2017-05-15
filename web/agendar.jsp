@@ -1,3 +1,4 @@
+<%@include file="taglibs.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,34 @@
   <div class="form" >
       <h2>INGRESE INFORMACION DE NUEVA VISITA</h2>
     <form action="insertar"  method="post" class="login-form"  id="forminicio">
-      <input type="combobox" placeholder="docente" name="docente"/>
-      <input type="date" placeholder="fecha" name="fecha"/>
-      <input type="text" placeholder="escuela" name="escuela"/>
+        <sql:setDataSource
+                            driver="com.mysql.jdbc.Driver"
+                            url="jdbc:mysql://localhost/parcial3java"
+                            user="root"
+                            password=""
+                            var="dataSource"
+                            />  
+     <sql:query var="result" dataSource="${dataSource}">
+                                   select * from 
+                        </sql:query>
+                                   <label>Seleccione una escuela</label><br>
+                                   <select name="ddescuelas">
+                                   <c:forEach var="escu" items="${result.rows}" >
+                                       <option value="${escu.id}"${escu.id==selectedSchool?'selected':''}>${escu.nombre}</option>       
+                                    </c:forEach> 
+                                   </select><br><br>
+      <input type="date" placeholder="fecha" name="fecha"/><br>
+      
+                        <sql:query var="result" dataSource="${dataSource}">
+                                   select * from escuelas
+                        </sql:query>
+                                   <label>Seleccione una escuela</label><br>
+                                   <select name="ddescuelas">
+                                   <c:forEach var="escu" items="${result.rows}" >
+                                       <option value="${escu.id}"${escu.id==selectedSchool?'selected':''}>${escu.nombre}</option>       
+                                    </c:forEach> 
+                                    </select>
+                                   <br>
       <button type="submit" >Crear</button>
     </form>
       
