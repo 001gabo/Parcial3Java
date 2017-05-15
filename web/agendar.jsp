@@ -1,4 +1,13 @@
 <%@include file="taglibs.jsp" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%  HttpSession objsesion = request.getSession(false);
+    String usuario = (String)objsesion.getAttribute("usuario");
+    String rol = (String)objsesion.getAttribute("rol");
+    if(rol != "director")
+    {
+        response.sendRedirect("log.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,38 +22,26 @@
 </head>
 
 <body>
-  <div class="login-page">
-  <div class="form" >
-      <h2>INGRESE INFORMACION DE NUEVA VISITA</h2>
-    <form action="insertar"  method="post" class="login-form"  id="forminicio">
-        <sql:setDataSource
+<sql:setDataSource
                             driver="com.mysql.jdbc.Driver"
                             url="jdbc:mysql://localhost/parcial3java"
                             user="root"
                             password=""
                             var="dataSource"
                             />  
-     <sql:query var="result" dataSource="${dataSource}">
-                                   select * from 
-                        </sql:query>
-                                   <label>Seleccione una escuela</label><br>
-                                   <select name="ddescuelas">
-                                   <c:forEach var="escu" items="${result.rows}" >
-                                       <option value="${escu.id}"${escu.id==selectedSchool?'selected':''}>${escu.nombre}</option>       
-                                    </c:forEach> 
-                                   </select><br><br>
-      <input type="date" placeholder="fecha" name="fecha"/><br>
-      
-                        <sql:query var="result" dataSource="${dataSource}">
-                                   select * from escuelas
-                        </sql:query>
-                                   <label>Seleccione una escuela</label><br>
-                                   <select name="ddescuelas">
-                                   <c:forEach var="escu" items="${result.rows}" >
-                                       <option value="${escu.id}"${escu.id==selectedSchool?'selected':''}>${escu.nombre}</option>       
-                                    </c:forEach> 
-                                    </select>
-                                   <br>
+<sql:query var="result" dataSource="${dataSource}">select * from persona where  persona.idescuela = 1   </sql:query>
+  <div class="form" >
+      <h2>INGRESE INFORMACION DE NUEVA VISITA</h2>
+    <form  method="post" class="login-form"  id="forminicio">
+        <select>
+        <c:forEach var="docente" items="${result.rows}" >
+             <option value="${escu.id}"${escu.id==selectedSchool?'selected':''} >${escu.nombre}</option>     
+         </c:forEach>  
+        </select>
+        
+        <input type="text" name="docente" value="1">
+        <input type="date" name="fecha"/><br>
+        <input type="text"  placeholder="Institucion"  name="escuela">           
       <button type="submit" >Crear</button>
     </form>
       

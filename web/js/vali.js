@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 window.addEventListener('load',function(){
-     alert('Bienvenido: Inicia sesion para reservar');
+     alert('Bienvenido: Inicia sesion antes de ingresar');
 
     document.getElementById('btniniciar').addEventListener('click',function (){
         var nombre = document.getElementById('txtusuario').value;

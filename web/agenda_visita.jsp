@@ -1,5 +1,14 @@
 <%@include file="taglibs.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%  HttpSession objsesion = request.getSession(false);
+    String usuario = (String)objsesion.getAttribute("usuario");
+    String rol = (String)objsesion.getAttribute("rol");
+    if(rol != "director")
+    {
+        response.sendRedirect("log.jsp");
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,7 +47,7 @@
                                     </c:forEach> 
                                     </select>
                                    <br><br>
-                                   <button type="submit" >Siguiente</button><br><br>
+                                   <a href="agendar.jsp"><button type="submit" >Siguiente</button><br><br>
                                    <a href="director.jsp"><button type="button">Inicio</button></a>
                 
         </div>

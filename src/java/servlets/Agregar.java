@@ -39,8 +39,7 @@ public class Agregar extends HttpServlet {
         ControladorAgenda cn = new ControladorAgenda();
        if(cn.registrar(usuario, apellido, institucion))
         {
-             response.sendRedirect("director.jsp");
-            
+             response.sendRedirect("director.jsp");            
         }
            
     }
